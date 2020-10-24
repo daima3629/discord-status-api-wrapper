@@ -3,6 +3,7 @@ import aiohttp
 
 API_URL = "https://srhpyqt94yxb.statuspage.io/api/v2/summary.json"
 
+
 class DiscordStatus:
     def __init__(self, json: dict):
         pass
