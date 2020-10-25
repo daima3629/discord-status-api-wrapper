@@ -22,6 +22,7 @@ class DiscordStatus:
                 return cls(base_dict)
 
     def _sort(self, base_json: dict):
+        # updated_at
         updated_time_re = TIME_FORMAT.match(base_json["page"]["updated_at"])
         updated_time = datetime.datetime(*map(int, updated_time_re.groups()), TIMEZONE_TIJUANA)
         self.updated_at = updated_time
