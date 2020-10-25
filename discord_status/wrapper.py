@@ -23,6 +23,10 @@ class DiscordStatus:
 
     def _sort(self, base_json: dict):
         # updated_at
-        updated_time_re = TIME_FORMAT.match(base_json["page"]["updated_at"])
+        self.page_updated_at = self._parse_updated_at(base_json["page"]["updated_at"])
+
+    @staticmethod
+    def _parse_updated_at(time_string):
+        updated_time_re = TIME_FORMAT.match(time_string)
         updated_time = datetime.datetime(*map(int, updated_time_re.groups()), TIMEZONE_TIJUANA)
-        self.updated_at = updated_time
+        return updated_time
